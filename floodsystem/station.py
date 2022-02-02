@@ -38,3 +38,21 @@ class MonitoringStation:
         d += "   river:         {}\n".format(self.river)
         d += "   typical range: {}".format(self.typical_range)
         return d
+
+    # Task 1F: add a method to check data consistency
+    # Yuqing Xue (yx357)
+    def typical_range_consistent(self):
+        if self.typical_range==None or self.typical_range[0]>self.typical_range[1]:
+            #print(self. name, self.typical_range)
+            return False
+        else:
+            return True
+
+# Task 1F: implement the submodule inconsistent_typical_range_stations
+# Yuqing Xue (yx357)
+def inconsistent_typical_range_stations(stations):
+    inconsistent_stations_list=[]
+    for station in stations:
+        if MonitoringStation.typical_range_consistent(station) is False:
+            inconsistent_stations_list.append(station.name) 
+    return inconsistent_stations_list
