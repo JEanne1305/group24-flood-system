@@ -68,7 +68,8 @@ def rivers_by_station_number(stations, N):
             
         else:                                       #if not, add the river and the original 
             required.append((station.river,n))     #no. of station into the list
-            
+   
+
     #sort the list of tuple by the number of station
     sorted_by_second = sorted(required, key=lambda tup: tup[1], reverse=True)
 
