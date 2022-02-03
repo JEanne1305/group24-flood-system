@@ -39,3 +39,16 @@ def stations_by_river(stations):
       else:
          rivers_dict[station.river]=[station.name] # create a list of station names
    return rivers_dict
+
+
+#Task 1C
+#Jeanne
+def stations_within_radius(stations,centre,r):
+    
+    required=[]
+    for i in stations:
+        distance=haversine(i.coord,centre)
+        if distance<=r:
+            required.append(i)
+    required.sort()
+    return required
