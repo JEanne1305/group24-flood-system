@@ -52,3 +52,36 @@ def stations_within_radius(stations,centre,r):
             required.append(i)
     required.sort()
     return required
+
+
+
+
+#Task 1E
+#Jeanne - lab group 24 river={}
+
+def rivers_by_station_number(stations, N):
+    required=[]
+    for station in stations:
+        n=1
+        if station.river in required: #if river name has appeared in the list before, 
+            required[station][n+=1]   #add 1 for the number of station
+            
+        else:                                       #if not, add the river and the original 
+            required.append((station.river,n))     #no. of station into the list
+            
+    #sort the list of tuple by the number of station
+    sorted_by_second = sorted(required, key=lambda tup: tup[1], reverse=True)
+
+    #create a list that contains N rivers with largest no. of stations
+    outcome=sorted_by_second[:N]
+
+    #see if any rivers after the 'Nth' river has the same no. of stations,
+    #if so, add it to the outcome list
+    M=N-1
+    while sorted_by_second[M][1]==sorted_by_second[M+1][1]:
+        outcome.append(sorted_by_second[M+1])
+        M+=1
+
+          
+
+    return outcome
