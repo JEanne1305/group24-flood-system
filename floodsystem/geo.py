@@ -62,14 +62,13 @@ def stations_within_radius(stations,centre,r):
 
 def rivers_by_station_number(stations, N):
     required=[]
-    for station in stations:
-        n=1
-        for i in range(len(stations)):
-            if station.river in required[i][0]: #if river name has appeared in the list before, 
-                required[i][1] = required[i][1]+1  #add 1 for the number of station
+    n=1
+    for i in range(len(stations)):
+        if stations.river in required[i][0]: #if river name has appeared in the list before, 
+            required[i][1] = required[i][1]+1  #add 1 for the number of station
             
         else:                                       #if not, add the river and the original 
-            required.append((station.river,n))     #no. of station into the list
+            required.append((stations.river,n))     #no. of station into the list
    
 
     #sort the list of tuple by the number of station
