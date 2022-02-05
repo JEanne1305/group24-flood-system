@@ -51,8 +51,8 @@ def stations_within_radius(stations,centre,r):
                                             #between the station and the centre
         if distance<=r:
             required.append(i)#if within the range, add it to the list
-    required.sort()
-    return required
+    
+    return sorted(required)
 
 
 
