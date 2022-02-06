@@ -3,7 +3,9 @@
 # SPDX-License-Identifier: MIT
 """Unit test for the station module"""
 
+from floodsystem.stationdata import build_station_list
 from floodsystem.station import MonitoringStation
+from floodsystem.station import inconsistent_typical_range_stations
 
 
 def test_create_monitoring_station():
@@ -25,3 +27,17 @@ def test_create_monitoring_station():
     assert s.typical_range == trange
     assert s.river == river
     assert s.town == town
+
+
+# Test 1F: inconsistent typical range stations
+# Yuqing Xue (yx357)
+def test_inconsistent_typical_range_stations():
+    stations = build_station_list()
+    inconsistency=inconsistent_typical_range_stations(stations)
+    inconsistency.sort()
+    for i in inconsistency:
+        for station in stations:
+            if i==station.name:
+                assert station.typical_range==None or station.typical_range[0]>station.typical_range[1]
+                # check that every station in the "inconsistency" list have an empty range or the range is inconsistent
+

@@ -24,13 +24,13 @@ def stations_by_distance(stations, p):
 
 # Task 1D 
 # Yuqing Xue (yx357)
-def rivers_with_station(stations):
+def rivers_with_station(stations): # return a set of names of rivers that have at least one monitoring station
    rivers_set=set()
    for station in stations:
       rivers_set.add(station.river)
    return rivers_set 
 
-def stations_by_river(stations):
+def stations_by_river(stations): # returns a dictionary of rivers (key: river, value: array of station names)
    rivers_dict={}
    for station in stations:
       if station.river in rivers_dict:
