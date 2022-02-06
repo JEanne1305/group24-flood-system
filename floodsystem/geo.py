@@ -39,3 +39,53 @@ def stations_by_river(stations):
       else:
          rivers_dict[station.river]=[station.name] # create a list of station names
    return rivers_dict
+
+
+#Task 1C
+#Jeanne
+def stations_within_radius(stations,centre,r):
+    
+    required=[]
+    for i in stations:
+        distance=haversine(i.coord,centre) #calculate the distance 
+                                            #between the station and the centre
+        if distance<=r:
+            required.append(i.name)#if within the range, add it to the list
+    
+    return sorted(required)
+
+
+
+
+#Task 1E
+#Jeanne - lab group 24 river={}
+
+def rivers_by_station_number(stations, N):
+    required=[]
+    n=1
+    for station in stations:
+        for i in range(len(stations)):
+            if station.river not in required: #if river name has appeared in the list before, 
+                required.append((station.river,n))   #add 1 for the number of station
+            
+            else: 
+                required[i][1] = required[i][1]+1      #if not, add the river and the original 
+                                                        #no. of station into the list
+   
+
+    #sort the list of tuple by the number of station
+    sorted_by_second = sorted(required, key=lambda tup: tup[1], reverse=True)
+
+    #create a list that contains N rivers with largest no. of stations
+    outcome=sorted_by_second[:N]
+
+    #see if any rivers after the 'Nth' river has the same no. of stations,
+    #if so, add it to the outcome list
+    M=N-1
+    while sorted_by_second[M][1]==sorted_by_second[M+1][1]:
+        outcome.append(sorted_by_second[M+1])
+        M+=1
+
+          
+
+    return outcome
