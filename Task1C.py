@@ -8,6 +8,9 @@ def run():
     a=(52.2053,0.1218)
     print(stations_within_radius(stations,a,10))
 
+
 if __name__=="__main__":
     run()
 
+print("ggg")
+print(run())
