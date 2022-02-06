@@ -50,7 +50,7 @@ def stations_within_radius(stations,centre,r):
         distance=haversine(i.coord,centre) #calculate the distance 
                                             #between the station and the centre
         if distance<=r:
-            required.append(i)#if within the range, add it to the list
+            required.append(i.name)#if within the range, add it to the list
     
     return sorted(required)
 
