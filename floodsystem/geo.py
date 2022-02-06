@@ -65,11 +65,12 @@ def rivers_by_station_number(stations, N):
     n=1
     for station in stations:
         for i in range(len(stations)):
-            if station.river in required[i][0]: #if river name has appeared in the list before, 
-                required[i][1] = required[i][1]+1  #add 1 for the number of station
+            if station.river not in required: #if river name has appeared in the list before, 
+                required.append((station.river,n))   #add 1 for the number of station
             
-            else:                                       #if not, add the river and the original 
-                required.append((station.river,n))     #no. of station into the list
+            else: 
+                required[i][1] = required[i][1]+1      #if not, add the river and the original 
+                                                        #no. of station into the list
    
 
     #sort the list of tuple by the number of station
