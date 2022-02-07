@@ -58,34 +58,42 @@ def stations_within_radius(stations,centre,r):
 
 
 #Task 1E
-#Jeanne - lab group 24 river={}
+#Jeanne - lab group 24 river
 
+
+    
 def rivers_by_station_number(stations, N):
-    required=[]
-    n=1
+    print("hello")
+    a=0
+    required={}
     for station in stations:
-        for i in range(len(stations)):
-            if station.river not in required: #if river name has appeared in the list before, 
-                required.append((station.river,n))   #add 1 for the number of station
-            
-            else: 
-                required[i][1] = required[i][1]+1      #if not, add the river and the original 
-                                                        #no. of station into the list
-   
+        #a+=1
+        #if a>40:
+        #    break
+        river=station.river
+        if river in required:
+            required[river]+=1
+        else: 
+            required[river]=1
+    
+    print(required)
+    a_tuple=required.items()
+    a_list=list(a_tuple)
+    #print(a_list)
+    
 
     #sort the list of tuple by the number of station
-    sorted_by_second = sorted(required, key=lambda tup: tup[1], reverse=True)
+    final_version = sorted(a_list, key=lambda tup: tup[1], reverse=True)
 
     #create a list that contains N rivers with largest no. of stations
-    outcome=sorted_by_second[:N]
+    outcome=final_version[:N]
 
     #see if any rivers after the 'Nth' river has the same no. of stations,
     #if so, add it to the outcome list
     M=N-1
-    while sorted_by_second[M][1]==sorted_by_second[M+1][1]:
-        outcome.append(sorted_by_second[M+1])
+    while final_version[M][1]==final_version[M+1][1] and M<=(len(final_version)-1):
+        outcome.append(final_version[M+1])
         M+=1
 
-          
 
     return outcome
