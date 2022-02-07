@@ -1,7 +1,7 @@
 """Unit test for the geo module"""
 
 from floodsystem.stationdata import build_station_list
-from floodsystem.geo import stations_by_distance, stations_within_radius
+from floodsystem.geo import stations_by_distance, stations_within_radius,rivers_by_station_number
 from floodsystem.geo import rivers_with_station
 from floodsystem.geo import stations_by_river
 
@@ -43,4 +43,10 @@ def test_station_within_radius():
     for i in required :
         assert required[i]<required[i+1]
 
-
+#task 1E
+#Jeanne
+def test_rivers_by_station_number():
+    stations=build_station_list()
+    N=7
+    outcome=rivers_by_station_number(stations,N)
+    assert outcome[N-1][1]>outcome[N][1] #make sure the repeated no. has already displayed
