@@ -48,6 +48,15 @@ class MonitoringStation:
         else:
             return True
 
+    # Task 2B: return the latest water level as a fraction of the typical range
+    # Yuqing Xue (yx357)
+    def relative_water_level(self):
+        if self.typical_range!=None or self.typical_range[0]<=self.typical_range[1]:
+            fraction=(self.latest_level - self.typical_range[0])/(self.typical_range[1]-self.typical_range[0])
+            return fraction
+        else:
+            return None
+
 # Task 1F: implement the submodule inconsistent_typical_range_stations
 # Yuqing Xue (yx357)
 def inconsistent_typical_range_stations(stations):
