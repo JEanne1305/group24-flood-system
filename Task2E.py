@@ -15,7 +15,7 @@ for i in range(len(station_required)):
     
     required_list.append(station_required[i][0])
 
-#print(required_list)
+print(required_list)
 
 #what i need is let stations_highest_rel locate the 5 stations 
 #that needed to be on the graph
@@ -38,13 +38,14 @@ def run():
                         i.measure_id, dt=datetime.timedelta(days=dt))
                 #print('222')
                 for date, levels in zip(dates, levels):
-                    t.append(date)
+                    appro_date=date.strftime("%H:%M:%S.%f - %b %d %Y")
+                    t.append(appro_date)
                     #print('333')#print(level)
                     level.append(levels)
                     #print('555')
-                    print(t)
-                    plot_water_levels(i,t,level)
-                    print('444')
+                    #print(t)
+                plot_water_levels(i,t,level)
+                print('444')
                 
             else:
                 break

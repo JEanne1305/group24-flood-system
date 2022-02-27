@@ -26,6 +26,8 @@ def plot_water_levels(station, dates, levels):
     #add lines of typical high and low levels
     typ_high=station.typical_range[1]
     typ_low=station.typical_range[0]
+    print(typ_high)
+    print('233')
     plt.plot(typ_low, dates, label="typical low")
     plt.plot(typ_high, dates, label="typical high")
 
