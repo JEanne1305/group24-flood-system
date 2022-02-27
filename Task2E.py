@@ -24,31 +24,32 @@ print(required_list)
 
 
 def run():
-
     #data about dates and level:
     t=[]
-    level=[]
+    levels_=[]
     dt = 10
-    for i in stations:
-        for station in required_list:
-            #print(station)
-            if station==i.name:
-                #print('111')
+    for station in required_list:
+        
+        for i in stations:
+            #print(i)
+            if  station == i.name:
+                print('333')
+                station_r=i
                 dates, levels = fetch_measure_levels(
-                        i.measure_id, dt=datetime.timedelta(days=dt))
-                #print('222')
-                for date, levels in zip(dates, levels):
-                    appro_date=date.strftime("%H:%M:%S.%f - %b %d %Y")
-                    t.append(appro_date)
-                    #print('333')#print(level)
-                    level.append(levels)
-                    #print('555')
-                    #print(t)
-                plot_water_levels(i,t,level)
-                print('444')
+                        station_r.measure_id, dt=datetime.timedelta(days=dt))
                 
-            else:
-                break
+                #print(modified_dates)
+                for date, level in zip(dates, levels):
+                    if date is None or level is None:
+                        break
+                    else:
+                        t.append(date.strftime("%d %b %Y"))
+                        levels_.append(level)
+                print(t)
+                print(levels)
+                plot_water_levels(station_r,t,levels)
+                print('444')        
+            
 
 
 if __name__ == "__main__":
