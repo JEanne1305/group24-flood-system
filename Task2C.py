@@ -11,7 +11,9 @@ print(stations[0].name)
 
 def run():
     stations=build_station_list()
-    print(stations_highest_rel_level(stations,10))
+    information=stations_highest_rel_level(stations,10)
+    for i in information:
+        print(i.name,i.typical_range[1])
 
 if __name__ == "__main__":
     print("*** Task 2C: CUED Part IA Flood Warning System ***")
