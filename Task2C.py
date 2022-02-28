@@ -12,6 +12,7 @@ print(stations[0].name)
 def run():
     stations=build_station_list()
     information=stations_highest_rel_level(stations,10)
+    print(information)
     for i in information:
         print(i.name,i.typical_range[1])
 
