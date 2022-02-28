@@ -4,6 +4,7 @@ from floodsystem.geo import stations_highest_rel_level
 from floodsystem.plot import plot_water_levels
 import datetime
 from floodsystem.datafetcher import fetch_measure_levels
+import numpy as np
 
 #to locate the 5 stations that has greatest current relative water level.
 #And produce a list of names
@@ -29,26 +30,19 @@ def run():
     levels_=[]
     dt = 10
     for station in required_list:
-        
+        station_r=None
         for i in stations:
             #print(i)
-            if  station == i.name:
+            if  i.name == station:
                 print('333')
                 station_r=i
-                dates, levels = fetch_measure_levels(
-                        station_r.measure_id, dt=datetime.timedelta(days=dt))
+        dt=10
+        dates, levels = fetch_measure_levels(station_r.measure_id, dt=datetime.timedelta(days=dt))
+        print(len(dates))
+        print(len(levels))        
                 
-                #print(modified_dates)
-                for date, level in zip(dates, levels):
-                    if date is None or level is None:
-                        break
-                    else:
-                        t.append(date.strftime("%d %b %Y"))
-                        levels_.append(level)
-                print(t)
-                print(levels)
-                plot_water_levels(station_r,t,levels)
-                print('444')        
+        plot_water_levels(station_r,dates,levels)
+        print('444')        
             
 
 
