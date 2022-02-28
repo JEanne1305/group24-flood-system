@@ -1,22 +1,12 @@
 #Task 2E by Jeanne
 from floodsystem.stationdata import build_station_list
-from floodsystem.geo import stations_highest_rel_level
+from floodsystem.flood import stations_highest_rel_level
 from floodsystem.plot import plot_water_levels
 import datetime
 from floodsystem.datafetcher import fetch_measure_levels
 import numpy as np
 
-#to locate the 5 stations that has greatest current relative water level.
-#And produce a list of names
-stations=build_station_list()
-station_required=list(stations_highest_rel_level(stations,5))
 
-required_list=[]
-for i in range(len(station_required)):
-    
-    required_list.append(station_required[i][0])
-
-print(required_list)
 
 #what i need is let stations_highest_rel locate the 5 stations 
 #that needed to be on the graph
@@ -25,6 +15,16 @@ print(required_list)
 
 
 def run():
+    #to locate the 5 stations that has greatest current relative water level.
+    #And produce a list of names
+    stations=build_station_list()
+    station_required=list(stations_highest_rel_level(stations,5))
+
+    required_list=[]
+    for i in range(len(station_required)):
+        required_list.append(station_required[i][0])
+
+    print(required_list)
     #data about dates and level:
     t=[]
     levels_=[]
@@ -41,7 +41,7 @@ def run():
         print(len(dates))
         print(len(levels))        
                 
-        plot_water_levels(station_r,dates,levels)
+        plot_water_levels(station_r,np.transpose(dates),levels)
         print('444')        
             
 

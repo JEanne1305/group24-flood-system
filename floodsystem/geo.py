@@ -101,28 +101,4 @@ def rivers_by_station_number(stations, N):
 
 
 
-#Task 2C Jeanne
-def stations_highest_rel_level(stations, N):
-    station_level={}
-    n=0
-    for i in range(len(stations)):
-        name=stations[i].name
-            
-        typ_range=stations[i].typical_range
-        if typ_range == None:
-            break
-        else:
-            station_level[name]=typ_range[1]
 
-    a_tuple=station_level.items()
-    a_list=list(a_tuple)
-    #print(a_list)
-    
-    #sort the list of tuple by the highest level
-    sorted_level = sorted(a_list, key=lambda tup: tup[1], reverse=True)
-
-    #create a list that contains N stations with highest relative level
-    outcome =sorted_level[:N]
-    
-
-    return outcome
