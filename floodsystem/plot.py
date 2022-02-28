@@ -11,16 +11,12 @@ import numpy as np
 #Task 2E Jeanne
 #data about dates and levels:
 
-<<<<<<< HEAD
 '''
 for date, level in zip(dates, levels):
     t.append(date)
     level.append(level)
 '''
 
-=======
-    
->>>>>>> b759fc3c542324c8e2fbcea1592b595d4bd156da
 # Plot
 def plot_water_levels(station, dates, levels):
     
@@ -47,7 +43,6 @@ def plot_water_levels(station, dates, levels):
 
     plt.show()
 
-<<<<<<< HEAD
 
 # Task 2F: function fitting
 # Yuqing Xue (yx357)
@@ -66,5 +61,3 @@ def plot_water_level_with_fit(station, dates, levels, p):
     plt.ylabel('Water level [m]')
     plt.legend()
     plt.show()
-=======
->>>>>>> b759fc3c542324c8e2fbcea1592b595d4bd156da
