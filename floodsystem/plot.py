@@ -8,15 +8,11 @@ import numpy as np
 
 
 
+
 #Task 2E Jeanne
 #data about dates and levels:
 
-'''
-for date, level in zip(dates, levels):
-    t.append(date)
-    level.append(level)
-'''
-
+    
 # Plot
 def plot_water_levels(station, dates, levels):
     
@@ -42,6 +38,8 @@ def plot_water_levels(station, dates, levels):
     plt.tight_layout()  # This makes sure plot does not cut off date labels
 
     plt.show()
+
+
 
 
 # Task 2F: function fitting
