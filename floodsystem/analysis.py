@@ -13,4 +13,7 @@ def polyfit(dates, levels, p):
     
     #convert coefficient into a polynomial that can be evaluated
     poly=np.poly1d(p_coeff)
+    d0=x-x[0]
+    return poly, d0
+
 
