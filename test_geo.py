@@ -4,6 +4,7 @@ from floodsystem.stationdata import build_station_list
 from floodsystem.geo import stations_by_distance, stations_within_radius,rivers_by_station_number
 from floodsystem.geo import rivers_with_station
 from floodsystem.geo import stations_by_river
+from floodsystem.flood import stations_highest_rel_level
 
 
 # Test 1B: stations by distance
@@ -50,3 +51,15 @@ def test_rivers_by_station_number():
     N=7
     outcome=rivers_by_station_number(stations,N)
     assert outcome[N-1][1]>outcome[N][1] #make sure the repeated no. has already displayed
+
+
+#task 2C
+#Jeanne
+
+#test if the output is a station object:
+
+def test_stations_highest_rel_level():
+    stations= stations=build_station_list()
+    N=7
+    outcome=stations_highest_rel_level(stations,N)
+    assert type(outcome)=='floodsystem.station.MonitoringStation' #make sure the individual element of the list is station object
